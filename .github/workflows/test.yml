@@ -1,31 +1,14 @@
-name: Test
-
-on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
-
+name: test
+on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
-
+        node: [22, 24, 26]
     steps:
       - uses: actions/checkout@v4
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: make install
-
-      - name: Check formatting
-        run: make format-check
-
-      - name: Run tests
-        run: make test
+          node-version: ${{ matrix.node }}
+      - run: npm test

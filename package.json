@@ -1,30 +1,33 @@
 {
   "name": "decimal",
-  "description": "Simple decimal arithmetic for the browser and node.js!",
+  "version": "0.0.3",
+  "description": "Simple decimal arithmetic for node.js (ProFit fork of decimal@0.0.2, maintained for current Node.js)",
   "author": "Samori Gorse <samorigorse@gmail.com>",
-  "version": "0.0.2",
-  "type": "module",
+  "contributors": [
+    "Matt Morgan <matt@pr.fit>"
+  ],
+  "license": "MIT",
   "keywords": [
     "arithmetic",
     "decimal",
     "float",
     "calculation"
   ],
-  "license": "MIT",
-  "main": "./lib/decimal",
+  "main": "./lib/decimal.js",
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/shinuza/decimal-js.git"
+    "url": "git+https://github.com/m-s-morgan/decimal-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/m-s-morgan/decimal-js/issues"
   },
   "engines": {
-    "node": "*"
+    "node": ">=22"
   },
   "scripts": {
-    "test": "make test",
-    "format": "prettier --write \"**/*.{js,json,yml,md}\"",
-    "format:check": "prettier --check \"**/*.{js,json,yml,md}\""
-  },
-  "devDependencies": {
-    "prettier": "^3.4.2"
+    "test": "node --test test/"
   }
 }
